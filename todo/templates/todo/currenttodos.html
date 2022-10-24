@@ -4,5 +4,15 @@
 
 <h1>Current To Do's</h1>
 
+<ul>
+    {% for task in tasks %}
+    <li>{{ task.title }}</li>
+    {% endfor %}
+</ul>
+
+<a href = "{% url 'createtodos' %}">Добавить новое дело</a>
+
 {% endblock %}
+
+
 
