@@ -1,0 +1,39 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+{{ task.title }}
+
+{{ error }}
+
+<form method = "POST">
+{% csrf_token %}    
+{{ form.as_p }}
+
+<button type = "submit">
+    Сохранить изменения
+</button>
+
+<button href = "{% url 'currenttodos' %}">Вернуться к списку дел</button>
+
+</form>
+
+<form method = "POST" action = "{% url 'completedtask' task.id %}">
+    {% csrf_token %}    
+    
+<button type = "submit">
+    Завершить задание
+</button>
+    
+</form>
+
+<form method = "POST" action = "{% url 'deletedtask' task.id %}">
+    {% csrf_token %}    
+    
+<button type = "submit">
+    Удалить задание
+</button>
+    
+</form>
+{% endblock %}
+

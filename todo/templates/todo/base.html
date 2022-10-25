@@ -2,6 +2,12 @@
 {% if user.is_authenticated %}
 
 Logged In as {{ user.username }}
+<br>
+<a href = "{% url 'createtodos' %}">Создать новую задачу</a>
+<br>
+<a href = "{% url 'currenttodos' %}">Текущие задачи</a>
+<br>
+<a href = "{% url 'completedtodos' %}">Завершенные задачи</a>
 
 <form action = "{% url 'logoutuser' %}" method = "POST">
     {% csrf_token %}
